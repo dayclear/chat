@@ -1,0 +1,15 @@
+$default-size: 16 !default;
+
+@function ptr($px) {
+  @return $px / $default-size * 0.5rem;
+}
+
+html {
+  font-size: $default-size + 'px';
+}
+
+body {
+  width: ptr(640);
+  height: ptr(1136);
+  background-color: #dea677;
+}
