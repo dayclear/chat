@@ -17,10 +17,12 @@ body {
   width: ptr(640);
   height: ptr(1136);
   background-color: #dea677;
+  overflow: hidden;
   .name {
     width: ptr(640);
     height: ptr(60);
     font-size: ptr(36);
+    text-align: center;
     line-height: ptr(60);
     color: #fff;
     background-color: #dea677;

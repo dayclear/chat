@@ -25,7 +25,7 @@ module.exports = {
     new htmlWebpackPlugin({
       template: 'index.html',
       filename: 'index.html',
-      inject: 'head',
+      inject: 'body',
       title: '聊天室', // 传参数
       minify: {
         removeComments: true, // 删注释

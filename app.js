@@ -14,7 +14,7 @@ app.route('/:id')
         res.send(html);
       });
 
-var server = http.Server(app);
+var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 var roomUser = [];
 
@@ -59,6 +59,6 @@ io.on('connection', function(socket) {
   })
 })
 
-app.listen(8888, function() {
-    console.log("应用实例，访问地址为 localhost:8888")
+server.listen(process.env.PORT || 8888,function(){
+  console.log("请访问 localhost:8888");
 });

@@ -20,7 +20,7 @@ import '../style/style.scss';
     });
 
     socket.addEventListener('newMessage', function(mes, user) {
-      box.innerHTML += '<p>'+user+'说：'+msg+'</p>';
+      box.innerHTML += '<p>'+user+'说：'+mes+'</p>';
     });
 
     submit.addEventListener('click', function() {
