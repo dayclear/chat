@@ -2,16 +2,18 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=devide-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title><%= htmlWebpackPlugin.options.title%></title>
+  <meta name="viewport" content="width=devide-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>聊天室</title>
 </head>
 <body>
   <div class="app">
+    <div class="name">我的昵称:<span id="name"></span></div>
     <div class="box" id="box"></div>
     <div class="text">
-      <input type="input" name="input">
+      <input id="input" type="input" name="input">
       <a id="submit" href="javascript:void()">发送</a>
     </div>
   </div>
+<script src="http://localhost:8888/socket.io/socket.io.js"></script>
 </body>
 </html>

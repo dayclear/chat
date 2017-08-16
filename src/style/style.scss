@@ -8,8 +8,51 @@ html {
   font-size: $default-size + 'px';
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   width: ptr(640);
   height: ptr(1136);
   background-color: #dea677;
+  .name {
+    width: ptr(640);
+    height: ptr(60);
+    font-size: ptr(36);
+    line-height: ptr(60);
+    color: #fff;
+    background-color: #dea677;
+  }
+  .text {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 0;
+    width: ptr(640);
+    height: ptr(60);
+    overflow-y: scroll;
+    input {
+      width: ptr(640);
+      height: ptr(60);
+      font-size: ptr(36);
+      line-height: ptr(60);
+      background-color: #19b8f0;
+    }
+    a {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: inline-block;
+      width: ptr(120);
+      height: ptr(60);
+      text-align: center;
+      font-size: ptr(36);
+      line-height: ptr(60);
+      color: #fff;
+      text-decoration: none;
+      background-color: #393c40;
+    }
+  }
 }
