@@ -45,7 +45,9 @@ import '../style/style.scss';
       input.focus();
       scrollToBottom();
     });
-
+    input.addEventListener('focus', function() {
+      scrollToBottom();
+    });
     function scrollToBottom () {
       main.scrollTop = box.offsetHeight + name.offsetHeight;
     }
