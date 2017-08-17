@@ -19,6 +19,9 @@ body {
   background-color: #dea677;
   overflow: hidden;
   .name {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: ptr(640);
     height: ptr(60);
     font-size: ptr(36);
@@ -29,20 +32,27 @@ body {
       color: green;
     }
   }
-  .box {
-    p {
-      width: ptr(640);
-      font-size: ptr(28);
-      line-height: ptr(40);
-      background-color: #fff;
-      margin-top: ptr(6);
-      &.red {
-        color: #f72020;
-      }
-      &.black {
-        color: #1a1a1a;
-        span {
-          color: green;
+  .main {
+    position: fixed;
+    top: ptr(60);
+    bottom: ptr(60);
+    width: ptr(640);
+    overflow-y: scroll;
+    .box {
+      p {
+        width: ptr(640);
+        font-size: ptr(28);
+        line-height: ptr(40);
+        background-color: #fff;
+        margin-top: ptr(6);
+        &.red {
+          color: #f72020;
+        }
+        &.black {
+          color: #1a1a1a;
+          span {
+            color: green;
+          }
         }
       }
     }
@@ -54,7 +64,7 @@ body {
     font-size: 0;
     width: ptr(640);
     height: ptr(60);
-    overflow-y: scroll;
+    overflow: hidden;
     input {
       width: ptr(640);
       height: ptr(60);

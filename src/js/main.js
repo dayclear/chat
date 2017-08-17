@@ -10,7 +10,9 @@ import '../style/style.scss';
     if (username.trim() === '') {
       username = '匿名';
     };
-    var nameSpan = document.getElementById('name');
+    var name = document.getElementById('name');
+    var nameSpan = document.getElementById('nameSpan');
+    var main = document.getElementById('main');
     var box = document.getElementById('box');
     var input = document.getElementById('input');
     var submit = document.getElementById('submit');
@@ -21,12 +23,14 @@ import '../style/style.scss';
       socket.emit('join', username);
     });
 
-    socket.addEventListener('sys', function(mes) {
+    socket.addEventListener('inRoom', function(mes) {
       box.innerHTML += '<p class="red">'+mes+'</p>';
+      scrollToBottom();
     });
 
     socket.addEventListener('newMessage', function(mes, user) {
       box.innerHTML += '<p class="black"><span>'+user+'</span>：'+mes+'</p>';
+      scrollToBottom();
     });
 
     submit.addEventListener('click', function() {
@@ -38,10 +42,12 @@ import '../style/style.scss';
         socket.send(html);
       };
       input.value = '';
-    })
+      input.focus();
+      scrollToBottom();
+    });
 
     function scrollToBottom () {
-      box.scrollTop = box.scrollHeight;
+      main.scrollTop = box.offsetHeight + name.offsetHeight;
     }
   }());
 

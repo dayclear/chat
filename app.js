@@ -7,7 +7,7 @@ var app = express();
 
 app.use('/js', express.static(path.resolve(__dirname, './build/js')));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extends: false}))
+app.use(bodyParser.urlencoded({extends: false}));
 app.route('/:id')
       .get(function(req, res) {
         var html = fs.readFileSync(path.resolve('./build/' + 'index.html'), 'utf-8');
@@ -32,8 +32,8 @@ io.on('connection', function(socket) {
     }
     roomUser[roomid].push(user);
     socket.join(roomid);
-    socket.to(roomid).emit('sys', user + '加入了房间');
-    socket.emit('sys', user + ' 欢迎加入房间,房间里有 ' +roomUser[roomid]+' ,共 '+roomUser[roomid].length+ ' 人');
+    socket.to(roomid).emit('inRoom', user + ' 加入了房间');
+    socket.emit('inRoom', user + ' 欢迎加入房间,房间里有 ' +roomUser[roomid]+' ,共 '+roomUser[roomid].length+ ' 人');
   });
 
   socket.on('message', function(mes) {
