@@ -25,7 +25,27 @@ body {
     text-align: center;
     line-height: ptr(60);
     color: #fff;
-    background-color: #dea677;
+    span {
+      color: green;
+    }
+  }
+  .box {
+    p {
+      width: ptr(640);
+      font-size: ptr(28);
+      line-height: ptr(40);
+      background-color: #fff;
+      margin-top: ptr(6);
+      &.red {
+        color: #f72020;
+      }
+      &.black {
+        color: #1a1a1a;
+        span {
+          color: green;
+        }
+      }
+    }
   }
   .text {
     position: fixed;

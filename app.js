@@ -33,11 +33,11 @@ io.on('connection', function(socket) {
     roomUser[roomid].push(user);
     socket.join(roomid);
     socket.to(roomid).emit('sys', user + '加入了房间');
-    socket.emit('sys', user + '加入了房间');
+    socket.emit('sys', user + ' 欢迎加入房间,房间里有 ' +roomUser[roomid]+' ,共 '+roomUser[roomid].length+ ' 人');
   });
 
   socket.on('message', function(mes) {
-    if (roomUser[roomid].indexOf(user)<0) {
+    if (roomUser[roomid].indexOf(user) < 0) {
       return false;
     }
     socket.to(roomid).emit('newMessage', mes, user);
@@ -52,7 +52,7 @@ io.on('connection', function(socket) {
         var index = roomUser[roomid].indexOf(user);
         if (index !== -1) {
           roomUser[roomid].splice(index, 1);
-          socket.to(roomid.emit('sys', user+'退出了房间'));
+          socket.to(roomid).emit('sys', user+'退出了房间');
         }
       }
     })
@@ -61,4 +61,5 @@ io.on('connection', function(socket) {
 
 server.listen(process.env.PORT || 8888,function(){
   console.log("请访问 localhost:8888");
+  console.log('ip地址为：' +__dirname);
 });
